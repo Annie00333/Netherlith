@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NETHERLITH - Minecraft Builder Portfolio</title>
+<style>
+/* Reset & basics */
+* {
+box-sizing: border-box;
+}
+body {
+margin: 0;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background: #121212;
+color: #eee;
+}
+header {
+background: #222;
+padding: 20px 0;
+text-align: center;
+border-bottom: 3px solid #6f4e37; /* brownish */
+}
+header h1 {
+margin: 0;
+font-size: 2.8rem;
+letter-spacing: 3px;
+font-weight: 900;
+color: #d4af37; /* gold */
+text-shadow: 1px 1px 4px #3a2b12;
+}
+header p {
+margin-top: 8px;
+font-style: italic;
+color: #aaa;
+}
+main {
+max-width: 960px;
+margin: 30px auto;
+padding: 0 15px;
+}
+section {
+margin-bottom: 50px;
+}
+h2 {
+border-bottom: 3px solid #6f4e37;
+padding-bottom: 8px;
+font-size: 2rem;
+color: #d4af37;
+margin-bottom: 20px;
+}
+p.intro {
+font-size: 1.1rem;
+line-height: 1.5;
+color: #ccc;
+}
+
+/* Gallery grid */
+.gallery {
+display: grid;
+grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+gap: 25px;
+}
+.gallery-item {
+background: #222;
+border: 2px solid #3e2f1c;
+border-radius: 10px;
+overflow: hidden;
+box-shadow: 0 4px 8px rgba(0,0,0,0.8);
+transition: transform 0.3s ease;
+}
+.gallery-item:hover {
+transform: scale(1.03);
+}
+.gallery-item img {
+width: 100%;
+height: auto;
+display: block;
+}
+.gallery-title {
+padding: 12px 15px;
+font-weight: 700;
+font-size: 1.2rem;
+color: #d4af37;
+background: #1b1b1b;
+text-align: center;
+}
+
+/* Slider container for multi images */
+.slider {
+position: relative;
+overflow: hidden;
+border-radius: 10px;
+}
+.slides {
+display: flex;
+transition: transform 0.5s ease-in-out;
+scroll-behavior: smooth;
+}
+.slides img {
+min-width: 100%;
+pointer-events: none;
+}
+/* Navigation buttons */
+.slider-btn {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background: rgba(212,175,55,0.7);
+border: none;
+color: #121212;
+font-size: 2rem;
+padding: 6px 12px;
+cursor: pointer;
+border-radius: 4px;
+user-select: none;
+}
+.slider-btn.left {
+left: 8px;
+}
+.slider-btn.right {
+right: 8px;
+}
+
+/* Prices grid */
+.prices {
+display: grid;
+grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+gap: 30px;
+}
+.price-card {
+background: #222;
+border: 2px solid #3e2f1c;
+border-radius: 10px;
+overflow: hidden;
+box-shadow: 0 4px 8px rgba(0,0,0,0.8);
+}
+.price-card img {
+width: 100%;
+height: auto;
+display: block;
+}
+.price-info {
+padding: 15px;
+color: #eee;
+}
+.price-info h3 {
+margin: 0 0 10px 0;
+color: #d4af37;
+font-size: 1.3rem;
+}
+.price-info p {
+margin: 0 0 5px 0;
+font-size: 1rem;
+color: #ccc;
+}
+.price-info .price {
+font-weight: 900;
+font-size: 1.4rem;
+color: #f5deb3;
+}
+.price-note {
+font-size: 0.9rem;
+color: #999;
+margin-top: 15px;
+font-style: italic;
+text-align: center;
+}
+
+/* Contact */
+.contact {
+background: #222;
+border: 2px solid #3e2f1c;
+border-radius: 10px;
+padding: 20px;
+text-align: center;
+box-shadow: 0 4px 8px rgba(0,0,0,0.8);
+}
+.contact h3 {
+margin-top: 0;
+font-size: 1.8rem;
+color: #d4af37;
+}
+.contact p {
+margin: 10px 0;
+font-size: 1.1rem;
+color: #ccc;
+}
+.contact a {
+color: #f5deb3;
+text-decoration: none;
+font-weight: 700;
+}
+.contact a:hover {
+text-decoration: underline;
+}
+
+/* Responsive fixes */
+@media (max-width: 480px) {
+header h1 {
+font-size: 2rem;
+letter-spacing: 1.5px;
+}
+h2 {
+font-size: 1.6rem;
+}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>NETHERLITH</h1>
+<p>Professional Minecraft Builder | Medieval & Fantasy Style</p>
+</header>
+
+<main>
+
+<section id="about">
+<h2>About Me</h2>
+<p class="intro">
+Hi! I'm a passionate Minecraft builder specializing in medieval and fantasy styles. I create custom builds tailored to your needs at affordable prices. Whether you want a small medieval spawn or a massive castle, I put care and creativity into every project to bring your Minecraft world to life.
+</p>
+</section>
+
+<section id="gallery">
+<h2>Build Portfolio</h2>
+
+<!-- Spawn medievale slider -->
+<div class="gallery-item">
+<div class="slider" id="slider-spawn">
+<div class="slides">
+<img src="https://i.imgur.com/cazpSua.jpeg" alt="Medieval Spawn - View 1" />
+<img src="https://i.imgur.com/U8T7L9r.jpeg" alt="Medieval Spawn - View 2" />
+</div>
+<button class="slider-btn left" onclick="slideLeft('slider-spawn')">&#8592;</button>
+<button class="slider-btn right" onclick="slideRight('slider-spawn')">&#8594;</button>
+</div>
+<div class="gallery-title">Small Medieval Spawn</div>
+</div>
+
+<!-- Ponte abitabile -->
+<div class="gallery-item">
+<img src="https://i.imgur.com/qXTyxXk.jpeg" alt="Habitable Bridge" />
+<div class="gallery-title">Habitable Bridge</div>
+</div>
+
+<!-- Giardini semplici -->
+<div class="gallery-item">
+<img src="https://i.imgur.com/GOtCjkI.jpeg" alt="Simple Castle Gardens" />
+<div class="gallery-title">Simple Castle Gardens</div>
+</div>
+
+<!-- Sala bacheca -->
+<div class="gallery-item">
+<img src="https://i.imgur.com/RWbiMK4.jpeg" alt="Rules Board Room" />
+<img src="https://i.imgur.com/6Jffu2A.jpeg" alt="Rules Board Room - Interior" />
+<div class="gallery-title">Rules Board Room</div>
+</div>
+
+<!-- Labirinto -->
+<div class="gallery-item">
+<img src="https://i.imgur.com/k41Y8EN.jpeg" alt="Maze Build" />
+<div class="gallery-title">Custom Maze (any size)</div>
+</div>
+
+<!-- Mega castello -->
+<div class="gallery-item">
+<img src="https://i.imgur.com/VWCIt5y.jpeg" alt="Mega Medieval Castle" />
+<div class="gallery-title">Mega Medieval Castle</div>
+</div>
+
+</section>
+
+<section id="prices">
+<h2>Price Examples</h2>
+<p class="price-note">*Prices are indicative. For exact quotes, please contact me directly.</p>
+<div class="prices">
+
+<div class="price-card">
+<img src="https://i.imgur.com/cazpSua.jpeg" alt="Small Medieval Spawn" />
+<div class="price-info">
+<h3>Small Medieval Spawn</h3>
+<p>Example shown in photos</p>
+<p class="price">€10</p>
+</div>
+</div>
+
+<div class="price-card">
+<img src="https://i.imgur.com/qXTyxXk.jpeg" alt="Habitable Bridge" />
+<div class="price-info">
+<h3>Habitable Bridge (Medium)</h3>
+<p>Bridge with houses under pillars</p>
+<p class="price">€15</p>
+</div>
+</div>
+
+<div class="price-card">
+<img src="https://i.imgur.com/GOtCjkI.jpeg" alt="Simple Castle Gardens" />
+<div class="price-info">
+<h3>Simple Castle Gardens</h3>
+<p>Basic decorative gardens for castles</p>
+<p class="price">€10</p>
+</div>
+</div>
+
+<div class="price-card">
+<img src="https://i.imgur.com/RWbiMK4.jpeg" alt="Rules Board Room" />
+<div class="price-info">
+<h3>Rules Board Room</h3>
+<p>Includes info board & interior design</p>
+<p class="price">€25</p>
+</div>
+</div>
+
+<div class="price-card">
+<img src="https://i.imgur.com/k41Y8EN.jpeg" alt="Custom Maze" />
+<div class="price-info">
+<h3>Custom Maze (Small)</h3>
+<p>Maze built to any size</p>
+<p class="price">€10</p>
+</div>
+</div>
+
+<div class="price-card">
+<img src="https://i.imgur.com/VWCIt5y.jpeg" alt="Mega Medieval Castle" />
+<div class="price-info">
+<h3>Mega Medieval Castle</h3>
+<p>Large castle with interior & decoration</p>
+<p class="price">€100</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact Me</h2>
+<div class="contact">
+<h3>Get in Touch</h3>
+<p>Instagram: <a href="https://instagram.com/Heldorya_" target="_blank">@Heldorya_ (heldoryaStudio)</a></p>
+<p>Email: <a href="mailto:netherlithannie@gmail.com">netherlithannie@gmail.com</a></p>
+</div>
+</section>
+
+</main>
+
+<script>
+// Slider logic for sliders with multiple images
+function slideRight(sliderId) {
+const slider = document.getElementById(sliderId);
+const slides = slider.querySelector('.slides');
+const slideWidth = slides.querySelector('img').clientWidth;
+slides.scrollBy({ left: slideWidth, behavior: 'smooth' });
+}
+function slideLeft(sliderId) {
+const slider = document.getElementById(sliderId);
+const slides = slider.querySelector('.slides');
+const slideWidth = slides.querySelector('img').clientWidth;
+slides.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
